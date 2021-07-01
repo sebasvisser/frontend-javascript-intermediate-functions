@@ -89,8 +89,7 @@ function averageGrade(grades) {
     for (let i = 0; i < grades.length; i++) {
         gradeSum = gradeSum + grades[i];
     }
-    let averageGrade = gradeSum / grades.length;
-    return averageGrade;
+    return gradeSum / grades.length;
 }
 
 // ---- Verwachte uitkomsten:
