@@ -20,14 +20,14 @@ for (let i = 0; i < grades.length; i++) {}
 // Nieuwe variabele aanmaken(buiten forloop) die binnen de for-loop increment als aan de conditie wordt voldaan
 
 // Log het antwoord in de terminal.
-const gradeCumLaude = 8;
-let amountCumLaude = 0;
+const gradeCumLaudei = 8;
+let amountCumLaudei = 0;
 for (let i = 0; i <grades.length ; i++) {
-    if (grades[i]>=gradeCumLaude){
-        amountCumLaude++;
+    if (grades[i]>=gradeCumLaudei){
+        amountCumLaudei++;
     }
 }
-console.log({amountCumLaude});
+console.log({amountCumLaudei});
 // ---- Verwachte uitkomst: 6
 
 
@@ -36,17 +36,15 @@ console.log({amountCumLaude});
 // Zorg ervoor dat jouw functie ook werkt als we een andere array met eindcijfers willen checken, zoals bijvoorbeeld: [6, 4, 5] of [8, 9, 4, 6, 10].
 // Log het antwoord in de terminal.
 
-// alles met 2 moeten schrijven ivm bovenstaande opdracht
-
-function cumLaude(grades2) {
-    const gradeCumLaude2 = 8;
-    let amountCumLaude2 = 0;
-    for (let i = 0; i <grades2.length ; i++) {
-        if (grades2[i]>=gradeCumLaude2){
-            amountCumLaude2++;
+function cumLaude(grades) {
+    const gradeCumLaude = 8;
+    let amountCumLaude = 0;
+    for (let i = 0; i <grades.length ; i++) {
+        if (grades[i]>=gradeCumLaude){
+            amountCumLaude++;
         }
     }
-    return amountCumLaude2;
+    return amountCumLaude;
 }
 
 // ---- Verwachte uitkomsten:
@@ -67,22 +65,43 @@ console.log("Verwacht 3 => " + cumLaude([8, 9, 4, 6, 10]));
 // De studenten-administratie moet ieder blok opnieuw berekenen wat het gemiddelde eindcijfer is, maar we beginnen met de grades array van hierboven.
 // Schrijf de stapjes om dit te kunnen berekenen eerst uit en vraag jezelf de volgende dingen af:
 // * Hoe wordt een gemiddelde berekend?
+// alle cijfers optellen en delen door het aantal cijfers.
 // * Wat moet ik verzamelen uit de array van cijfers om uiteindelijk een gemiddelde te kunnen berekenen?
+// alle data (cijfers) om die op te tellen. en de lengte van de array (array.length)
 // * Hoe zorgt ik ervoor dat ik alle waardes uit de array kan langslopen, ook als de array wel 100 entries zou bevatten?
 // Log het antwoord in de terminal.
 
 // ---- Verwachte uitkomst: 6.642857142857143
-
+let cijferSom = 0;
+for (let i = 0; i < grades.length; i++) {
+    cijferSom = cijferSom + grades[i];
+}
+let cijferGemiddelde = cijferSom / grades.length;
+console.log(cijferGemiddelde);
 
 /* 2b: Omschrijven tot een herbruikbare functie */
 // Schrijf een functie genaamd averageGrade, die een array van cijfers verwacht (zoals grades) en het gemiddelde cijfer teruggeeft. Gebruik hiervoor jouw antwoord van 2a.
 // Zorg ervoor dat jouw functie ook werkt als we een andere array willen checken, zoals bijvoorbeeld: [6, 4, 5] of [8, 9, 4, 6, 10].
 // Log het antwoord in de terminal.
 
+function averageGrade(grades) {
+    let gradeSum = 0;
+    for (let i = 0; i < grades.length; i++) {
+        gradeSum = gradeSum + grades[i];
+    }
+    let averageGrade = gradeSum / grades.length;
+    return averageGrade;
+}
+
 // ---- Verwachte uitkomsten:
 // averageGrade(grades) geeft 6.642857142857143
+ console.log("Verwacht 6.642857142857143 => " + averageGrade(grades));
+
 // averageGrade([6, 4, 5]) geeft xxxx
+console.log("Verwacht xxxx => " + averageGrade([6, 4, 5]));
+
 // averageGrade([8, 9, 4, 6, 10]) geeft xxxx
+console.log("Verwacht xxxx => " + averageGrade([8, 9, 4, 6, 10]));
 
 
 /* 2c: Afronden op twee decimalen */
