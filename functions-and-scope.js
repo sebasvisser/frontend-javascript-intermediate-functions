@@ -117,8 +117,15 @@ console.log("Verwacht xxxx => " + averageGrade([8, 9, 4, 6, 10]));
 // * Hoe kan ik iedere waarde van de array langsgaan?
 // * Op welke conditie moet ik checken?
 // * Hoe zorgt ik ervoor dat wanneer ik een cijfer tegenkom die aan de conditie voldoet, ik dit ergens kan opslaan?
+// variabele hoogsteCijfer aanmaken en die steeds aanpassen ALS je binnen de array een hoger cijfer tegenkomt
 // Log het antwoord in de terminal.
-
+let hoogsteCijfer = 0;
+for (let i = 0; i < grades.length; i++) {
+    if (grades[i] > hoogsteCijfer){
+        hoogsteCijfer = grades[i];
+    }
+}
+console.log(hoogsteCijfer);
 // ---- Verwachte uitkomst: 9
 
 
@@ -127,7 +134,23 @@ console.log("Verwacht xxxx => " + averageGrade([8, 9, 4, 6, 10]));
 // Zorg ervoor dat jouw functie ook werkt als we een andere array willen checken, zoals bijvoorbeeld: [6, 4, 5] of [8, 9, 4, 6, 10].
 // Log het antwoord in de terminal.
 
+function highestGrade(grades) {
+    let highGrade = 0;
+    for (let i = 0; i < grades.length; i++) {
+        if (grades[i] > highGrade){
+            highGrade = grades[i];
+        }
+    }
+    return highGrade;
+}
+
+
 // ---- Verwachte uitkomsten:
 // highestGrade(grades) geeft 9
+console.log("Verwacht 9 => " + highestGrade(grades));
+
 // highestGrade([6, 4, 5]) geeft 6
+console.log("Verwacht 6 => " + highestGrade([6, 4, 5]));
+
 // highestGrade([8, 9, 4, 6, 10]) geeft 10
+console.log("Verwacht 10 => " + highestGrade([8, 9, 4, 6, 10]));
