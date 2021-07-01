@@ -10,10 +10,24 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 // De administratie moet weten hoeveel studenten er dit blok cum laude zijn afgestudeerd (8 of hoger). Daar moeten namelijk speciale diploma's voor besteld worden.
 // Schrijf de stapjes om dit te kunnen checken eerst uit en vraag jezelf de volgende dingen af:
 // * Hoe kan ik iedere waarde van de array checken op deze conditie?
-// * Hoe zorg ik ervoor dat dit ook werkt wanneer de array 100 entries bevat?
-// * Hoe zorgt ik ervoor dat wanneer ik een cijfer tegenkom die aan de conditie voldoet, ik dit ergens kan bijhouden?
-// Log het antwoord in de terminal.
+// for-loop aanmaken
+for (let i = 0; i < grades.length; i++) {}
 
+// * Hoe zorg ik ervoor dat dit ook werkt wanneer de array 100 entries bevat?
+// dit werkt zelfs met 100000 entries..
+
+// * Hoe zorgt ik ervoor dat wanneer ik een cijfer tegenkom die aan de conditie voldoet, ik dit ergens kan bijhouden?
+// Nieuwe variabele aanmaken(buiten forloop) die binnen de for-loop increment als aan de conditie wordt voldaan
+
+// Log het antwoord in de terminal.
+const gradeCumLaude = 8;
+let amountCumLaude = 0;
+for (let i = 0; i <grades.length ; i++) {
+    if (grades[i]>=gradeCumLaude){
+        amountCumLaude++;
+    }
+}
+console.log({amountCumLaude});
 // ---- Verwachte uitkomst: 6
 
 
@@ -22,10 +36,27 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 // Zorg ervoor dat jouw functie ook werkt als we een andere array met eindcijfers willen checken, zoals bijvoorbeeld: [6, 4, 5] of [8, 9, 4, 6, 10].
 // Log het antwoord in de terminal.
 
+// alles met 2 moeten schrijven ivm bovenstaande opdracht
+
+function cumLaude(grades2) {
+    const gradeCumLaude2 = 8;
+    let amountCumLaude2 = 0;
+    for (let i = 0; i <grades2.length ; i++) {
+        if (grades2[i]>=gradeCumLaude2){
+            amountCumLaude2++;
+        }
+    }
+    return amountCumLaude2;
+}
+
 // ---- Verwachte uitkomsten:
 // cumLaude(grades) geeft 6
+console.log("Verwacht 6 => " + cumLaude(grades));
 // cumLaude([6, 4, 5]) geeft 0
+console.log("Verwacht 0 => " + cumLaude([6, 4, 5]));
 // cumLaude([8, 9, 4, 6, 10]) geeft 3
+console.log("Verwacht 3 => " + cumLaude([8, 9, 4, 6, 10]));
+
 
 
 
