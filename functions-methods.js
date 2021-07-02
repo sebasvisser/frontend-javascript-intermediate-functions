@@ -62,9 +62,46 @@ console.log("Verwacht Extern => " + typeOfEmail("a.wiersma@outlook.com"));
 // * Er een @ in voorkomt
 // * Er géén , in voorkomt
 // * Er géén . in voorkomt als allerlaatste karakter (dus hotmail.com is valide, net als outlook.nl, maar outlooknl. niet)
+
+function checkEmailValidity(email){
+    //voorwaarden checken
+    let validAtSign = false;
+    let noComma = true;
+    let endPoint ;
+
+    if (email.includes("@",0)){
+         validAtSign = true;
+    }
+    if(email.includes(",",0)){
+         noComma = false;
+    }
+    if(email.slice(-1) === ".") {
+         endPoint = false;
+    }else {
+        endPoint = true;
+    }
+
+    //return opbouwen
+    if( validAtSign && noComma && endPoint){
+        return true;
+    }else {
+        return false;
+    }
+}
+
 // ---- Verwachte uitkomsten:
+console.log("Opdracht 3:")
 // checkEmailValidity("n.eeken@novi.nl") geeft true - want @ en punt op de juiste plek
+console.log("Verwacht true => " + checkEmailValidity("n.eeken@novi.nl"));
+
 // checkEmailValidity("tessmellink@novi.nl") geeft true - want @ en punt op de juiste plek
+console.log("Verwacht true => " + checkEmailValidity("tessmellink@novi.nl"));
+
 // checkEmailValidity("n.eekenanovi.nl") geeft false - want geen @
+console.log("Verwacht false => " + checkEmailValidity("n.eekenanovi.nl"));
+
 // checkEmailValidity("n.eeken@novinl.") geeft false - want de punt mag niet als laatst
+console.log("Verwacht false => " + checkEmailValidity("n.eeken@novinl."));
+
 // checkEmailValidity("tessmellink@novi,nl") geeft false - want er staat een komma in
+console.log("Verwacht false => " + checkEmailValidity("tessmellink@novi,nl"));
