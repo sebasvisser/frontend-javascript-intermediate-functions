@@ -7,8 +7,7 @@
 
 function getEmailDomain(mail) {
     let indexAt = mail.search("@");
-    let domain = mail.slice(indexAt+1,mail.length);
-    return domain;
+    return mail.slice(indexAt+1,mail.length);
 }
 // ---- Verwachte uitkomsten:
 // getEmailDomain("n.eeken@novi-education.nl") geeft novi-education.nl
